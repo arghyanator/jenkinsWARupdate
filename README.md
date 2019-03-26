@@ -196,3 +196,12 @@ echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 curl -s -k -u ${TOKEN}:unused -i "http://localhost:5000/api/runupgrade?warversion=$WARFILEVERSION"
 ```
 
+## Add iptables rules 
+
+Add IPtables rules on linux to allow only localhost to connect to API port (TCP: 5000)
+```
+/etc/default/iptables.rules:
+
+-A INPUT -s 127.0.0.1 -p tcp  --dport 5000 -j ACCEPT
+
+```
