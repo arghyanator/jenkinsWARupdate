@@ -175,5 +175,6 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"username":"apiuser","p
 ```
 > Add the user/password in Jenkins credentials store<br>
 > Create the project with following options<br>
+
 **Parameters**<br>
 [Build string parameters]()
