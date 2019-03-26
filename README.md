@@ -177,4 +177,22 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"username":"apiuser","p
 > Create the project with following options<br>
 
 **Parameters**<br>
-![Build string parameters](https://github.com/arghyanator/jenkinsWARupdate/blob/master/project_string_parameter.png)
+![Build string parameters](https://github.com/arghyanator/jenkinsWARupdate/blob/master/project_string_parameter.png)<br>
+**Credentials Username/password binding**
+![username and password binding](https://github.com/arghyanator/jenkinsWARupdate/blob/master/project_username_binding.png)<br>
+**Execute Shell in Build step**<br>
+```
+#Get token after authenticating
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+echo "Generating expiring token...validity 10 minutes"
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+TOKEN=$(curl -s -k -u ${APIUSER}:${APIPASSWORD} -i -X GET http://localhost:5000/api/token |grep token | sed 's/"//g;s/token//g;s/://g;s/[[:blank:]]//g')
+echo ${TOKEN}
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+echo "Upgrading Jenkins WAR to requested with the security token"
+echo "it takes 5 to 10 Minutes --"
+echo "output is shown at the end"
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+curl -s -k -u ${TOKEN}:unused -i "http://localhost:5000/api/runupgrade?warversion=$WARFILEVERSION"
+```
+
