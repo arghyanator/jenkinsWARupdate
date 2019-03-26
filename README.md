@@ -167,3 +167,13 @@ if __name__ == '__main__':
     
 ```
 
+## Set up Jenkins freestyle project
+> Create the user/password using curl command on the shell of jenkins master
+
+```
+curl -i -X POST -H "Content-Type: application/json" -d '{"username":"apiuser","password":"apipassword"}'  http://localhost:5000/api/users
+```
+> Add the user/password in Jenkins credentials store<br>
+> Create the project with following options
+**Parameters**
+![Build string parameters]()
