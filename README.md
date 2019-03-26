@@ -174,6 +174,6 @@ if __name__ == '__main__':
 curl -i -X POST -H "Content-Type: application/json" -d '{"username":"apiuser","password":"apipassword"}'  http://localhost:5000/api/users
 ```
 > Add the user/password in Jenkins credentials store<br>
-> Create the project with following options
-**Parameters**
-![Build string parameters]()
+> Create the project with following options<br>
+**Parameters**<br>
+[Build string parameters]()
