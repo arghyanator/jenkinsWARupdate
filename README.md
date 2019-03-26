@@ -177,4 +177,4 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"username":"apiuser","p
 > Create the project with following options<br>
 
 **Parameters**<br>
-[Build string parameters]()
+[Build string parameters](https://github.com/arghyanator/jenkinsWARupdate/blob/master/project_string_parameter.png)
